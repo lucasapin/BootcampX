@@ -45,3 +45,15 @@ WHERE students.end_date IS NULL
 GROUP BY students.name
 HAVING AVG(assignment_submissions.duration) < AVG(assignments.duration)
 ORDER BY AVG(assignment_submissions.duration);
+
+
+
+
+
+SELECT(
+  SELECT count(assignments)
+  FROM assignments
+)-count(assignment_submissions) as total_incomplete
+FROM assignment_submissions
+JOIN students ON students.id = student_id
+WHERE students.name = 'Ibrahim Schimmel';
